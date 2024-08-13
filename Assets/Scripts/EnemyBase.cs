@@ -5,10 +5,15 @@ using UnityEngine;
 
 public class EnemyBase : MonoBehaviour
 {
-    private float hp = 100;
-    private float armor = 0;
+    [SerializeField] private float hp = 100;
+    [SerializeField] private float armor = 0;
     private bool isDead;
-    private GameObject textDamagePrefab;
+
+    #region refferent
+    public float _currentHp;
+    public float _currentArmor;
+    #endregion
+    [SerializeField] private GameObject textDamagePrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +23,8 @@ public class EnemyBase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        _currentHp = hp;
+        _currentArmor = armor;
     }
 
     public virtual void UpdateCondition()
@@ -50,7 +56,8 @@ public class EnemyBase : MonoBehaviour
     public virtual void TakeDamage(float damage)
     {
         GameObject textDamage = Instantiate(textDamagePrefab,gameObject.transform.position,gameObject.transform.rotation);
-        textDamage.GetComponent<TMP_Text>().text = damage.ToString();
-        hp =  damage - armor;
+        textDamage.GetComponent<TextDamage>().SetDamageText(damage);
+    
+        hp -=  damage - armor;
     }
 }

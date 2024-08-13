@@ -9,7 +9,7 @@ public class Dummy : EnemyBase
     public override void TakeDamage(float damage)
     {
         damageText.text = damage.ToString();
-        damage = 0;
+        
         base.TakeDamage(damage);
     }
 }
