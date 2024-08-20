@@ -8,13 +8,5 @@ public class BasicGun : BaseGun
     {
         base.UpdateCondition();
         Shoot();
-        if(Input.GetKeyDown(KeyCode.C))
-        {
-            AddBulletSpeed(200);
-        }
-        if(Input.GetKeyDown(KeyCode.V))
-        {
-            AddFirerate(0.9f);
-        }
     }
 }

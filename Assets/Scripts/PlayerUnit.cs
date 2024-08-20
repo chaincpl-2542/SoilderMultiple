@@ -2,11 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PlayerUnit : MonoBehaviour
 {
     public Transform target;
     public float turnSpeed = 5f;
+
+    void Start()
+    {
+
+    }
 
     void Update()
     {
